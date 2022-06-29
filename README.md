@@ -1,1 +1,3 @@
-# LSST-Year-1-tutorial
+![](https://cdn2.webdamdb.com/1280_kE2qmG9CY12w41gq.jpg?1654725662)
+# LSST Data Emulator
+Forked from the original implementation for the LSST Y1 tutorial. Since we want to do MCMC sampling to sample cosmological parameters, we need to know the prior and likelihood of our parameters. Priors are given based on previous experiments/constraints and likelihoods are given in the data space by the experiments themselves. The data space for LSST has 1560 dimensions (!!) and the transformation from data space to parameter space is highly non-linear. The general method to compute the likelihood is using CosmoLike, however doing this for thousands of long chains is not tractable, thus a neural network is trained on a single CosmoLike output to learn the mapping, emulating the data vectors. The neural network is able to quickly estimate likelihoods to accelerate MCMC sampling.
