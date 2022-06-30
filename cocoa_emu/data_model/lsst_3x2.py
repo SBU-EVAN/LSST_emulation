@@ -32,7 +32,7 @@ class LSST_3x2(GaussianLikelihood):
             theta = torch.Tensor(theta)
         elif(self.emu_type=='gp'):
             theta = theta[np.newaxis]
-        datavector = self.emu.predict(theta)[0]        
+        datavector = self.emu.predict(theta)        
         return datavector
     
     def log_prior(self, theta):
